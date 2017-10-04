@@ -3993,7 +3993,7 @@ function(libname, pkgname) {
           .formatting.alignment <- paste(.formatting.alignment, "c", sep="")
         }
         else {
-          .formatting.alignment <- paste(.formatting.alignment, "D{", .format.decimal.character,"}{", .format.decimal.character,"}{-", .format.s.round.digits,"} ", sep="")
+          .formatting.alignment <- paste(.formatting.alignment, "S", sep="")
         }
       }
       #
@@ -4371,7 +4371,7 @@ function(libname, pkgname) {
           .formatting.alignment <- paste(.formatting.alignment, "c", sep="")
     	  }
         else {
-          .formatting.alignment <- paste(.formatting.alignment, "D{", .format.decimal.character,"}{", .format.decimal.character,"}{-", .format.s.round.digits,"} ", sep="")
+          .formatting.alignment <- paste(.formatting.alignment, "S", sep="")
         }
       }
       #
@@ -4716,7 +4716,7 @@ function(libname, pkgname) {
           .formatting.alignment <- paste(.formatting.alignment, "c", sep="")
   	    }
         else {
-  	    .formatting.alignment <- paste(.formatting.alignment, "D{", .format.decimal.character,"}{", .format.decimal.character,"}{-", .format.round.digits,"} ", sep="")
+  	      .formatting.alignment <- paste(.formatting.alignment, "S", sep="")
         }
       }
       #
@@ -6452,7 +6452,7 @@ function(libname, pkgname) {
     .global.intercept.strings <- c("(Intercept)", "(intercept)","Intercept")
     
     # .formatting: Default
-    .format.space.size <- "-2.1ex"
+    #.format.space.size <- "-2.1ex"
     
     .format.dependent.variable.text <- "\\textit{Dependent variable:}"
     .format.dependent.variable.text.underline <- TRUE
