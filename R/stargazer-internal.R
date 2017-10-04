@@ -4746,7 +4746,7 @@ function(libname, pkgname) {
 
   .table.insert.space <-
   function() {
-    cat("\\\\[",.format.space.size,"]",sep="")
+  	cat("\\\\[",.format.space.size,"]",sep="")
   }
 
   .trim <-
@@ -5301,7 +5301,7 @@ function(libname, pkgname) {
       
       for (row in 1:length(latex.code)) {
         line <- latex.code[row]
-        if (substr(line, nchar(line)-2, nchar(line)) == "\\\\ " | line == "\\toprule" | line == "\\bottomrule") {
+        if (substr(line, nchar(line)-2, nchar(line)) == "\\\\ ") {
           r <- r + 1
           .text.output.line(t, r, w, c, j)
         }
@@ -5390,7 +5390,7 @@ function(libname, pkgname) {
         
         for (row in 1:length(latex.code)) {
           line <- latex.code[row]
-          if (substr(line, nchar(line)-2, nchar(line)) == "\\\\ " | line == "\\toprule" | line == "\\bottomrule") {
+          if (substr(line, nchar(line)-2, nchar(line)) == "\\\\ ") {
             r <- r + 1
             .html.output.line(t, r, w, c, j)
           }
@@ -5479,7 +5479,7 @@ function(libname, pkgname) {
         
         for (row in 1:length(latex.code)) {
           line <- latex.code[row]
-          if (substr(line, nchar(line)-2, nchar(line)) == "\\\\ " | line == "\\toprule" | line == "\\bottomrule") {
+          if (substr(line, nchar(line)-2, nchar(line)) == "\\\\ ") {
             r <- r + 1
             .mmd.output.line(t, r, w, c, j)
           }
@@ -5696,7 +5696,7 @@ function(libname, pkgname) {
     rows <- 0
     for (i in 1:length(latex.code)) {
       line <- latex.code[i]
-      if (substr(line, nchar(line)-2, nchar(line)) == "\\\\ " | line == "\\toprule" | line == "\\bottomrule") { 
+      if (substr(line, nchar(line)-2, nchar(line)) == "\\\\ ") { 
         rows <- rows + 1
       }
     }      
@@ -5737,7 +5737,7 @@ function(libname, pkgname) {
       row <- 0
       for (i in 1:length(latex.code)) {
         line <- latex.code[i]
-        if (substr(line, nchar(line)-2, nchar(line)) == "\\\\ " | line == "\\toprule" | line == "\\bottomrule") { 
+        if (substr(line, nchar(line)-2, nchar(line)) == "\\\\ ") { 
           row <- row + 1
           line.content <- .split.line(.remove.control.sequences(line, type=type))
           length(line.content) <- how.many.columns
