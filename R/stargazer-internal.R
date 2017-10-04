@@ -6454,7 +6454,7 @@ function(libname, pkgname) {
     .global.intercept.strings <- c("(Intercept)", "(intercept)","Intercept")
     
     # .formatting: Default
-    .format.space.size <- "0ex"
+    .format.space.size <- "-2.1ex"
     
     .format.dependent.variable.text <- "\\textit{Dependent variable:}"
     .format.dependent.variable.text.underline <- TRUE
