@@ -6330,7 +6330,7 @@ function(libname, pkgname) {
       layout.error <- FALSE
       for (i in 1:nchar(table.layout)) {
         ch <- substring(table.layout,i,i)
-        if (!(ch %in% c("=","-","!","l","d","m","c","#","b","t","o","a","s","n"))) (layout.error <- TRUE)
+        if (!(ch %in% c("=","-","_","!","l","d","m","c","#","b","t","o","a","s","n"))) (layout.error <- TRUE)
       }
       if (layout.error) { error.present <- c(error.present, "% Error: Invalid characters in 'table.layout'. See package documentation. \n") }
     }  
@@ -6341,7 +6341,7 @@ function(libname, pkgname) {
       layout.error <- FALSE
       for (i in 1:nchar(omit.table.layout)) {
         ch <- substring(omit.table.layout,i,i)
-        if (!(ch %in% c("=","-","!","l","d","m","c","#","b","t","o","a","s","n"))) (layout.error <- TRUE)
+        if (!(ch %in% c("=","-","_","!","l","d","m","c","#","b","t","o","a","s","n"))) (layout.error <- TRUE)
       }
       if (layout.error) { error.present <- c(error.present, "% Error: Invalid characters in 'omit.table.layout'. See package documentation. \n") }
     }  
