@@ -6648,7 +6648,7 @@ function(libname, pkgname) {
     
     #### summary statistic table
     .format.s.statistics.names <- cbind(c("n","N"), c("nmiss","missing"), c("mean","Mean"), c("sd","St. Dev."), c("median","Median"), c("min","Min"), c("max","Max"), c("mad","Median Abs. Dev."), c("p","Pctl(!)"))
-    .format.s.stat.parts <- c("=!","stat names","-","statistics1","-!","notes")
+    .format.s.stat.parts <- c("=!","stat names","-","statistics1","_!","notes")
     .format.s.statistics.list <- c("n","mean","sd","min","p25","median","p75","max")
     
     .format.s.statistics.names.left <- ""
@@ -6993,8 +6993,9 @@ function(libname, pkgname) {
           component.letter <- substr(table.layout, i, i)
           if (component.letter == "=") { .format.table.parts.new <- append(.format.table.parts.new, "=") }
           if (component.letter == "-") { .format.table.parts.new <- append(.format.table.parts.new, "-") }
+          if (component.letter == "_") { .format.table.parts.new <- append(.format.table.parts.new, "_") }
           if ((component.letter == "!") & (i > 1)) { 
-            if (.format.table.parts.new[i-1] %in% c("-","=")) {
+            if (.format.table.parts.new[i-1] %in% c("-","=","_")) {
               .format.table.parts.new[i-1] <- paste(.format.table.parts.new[i-1], "!", sep="")
             }
           }
