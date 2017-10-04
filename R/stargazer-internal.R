@@ -4041,7 +4041,7 @@ function(libname, pkgname) {
           .data.frame.table.part(object,.format.s.stat.parts[i], which.part.number = i)
           
           if (.table.part.published[i]==TRUE) { .publish.horizontal.line <<- TRUE }
-          if ((.format.s.stat.parts[i]=="-") | (.format.s.stat.parts[i]=="-!") | (.format.s.stat.parts[i]=="=") | (.format.s.stat.parts[i]=="=!")) { .publish.horizontal.line <<- FALSE }
+          if ((.format.s.stat.parts[i]=="-") | (.format.s.stat.parts[i]=="-!") | (.format.s.stat.parts[i]=="=") | (.format.s.stat.parts[i]=="_") | (.format.s.stat.parts[i]=="=!") | (.format.s.stat.parts[i]=="_!")) { .publish.horizontal.line <<- FALSE }
         }
       }
       
