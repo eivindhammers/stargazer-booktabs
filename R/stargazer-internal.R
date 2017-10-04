@@ -499,11 +499,7 @@ function(libname, pkgname) {
     }
   
     else if (style=="default") {
-      .format.table.parts <<- c("=!","dependent variable label","dependent variables","models","columns","numbers","objects","-","coefficients","-","omit","-","additional","N","R-squared","adjusted R-squared","max R-squared","log likelihood","sigma2","theta(se)*", "AIC","BIC","UBRE","rho(se)*","Mills(se)*", "SER(df)","F statistic(df)*","chi2(df)*","Wald(df)*","LR(df)*","logrank(df)*","_!","notes")
-    }
-    
-    else if (style=="summary") {
-      .format.table.parts <<- c("=!","dependent variable label","dependent variables","models","columns","numbers","objects","-","coefficients","_!","notes")
+      .format.table.parts <<- c("=!","dependent variable label","dependent variables","models","columns","numbers","objects","-","coefficients","-","omit","-","additional","N","R-squared","adjusted R-squared","max R-squared","log likelihood","sigma2","theta(se)*", "AIC","BIC","UBRE","rho(se)*","Mills(se)*", "SER(df)","F statistic(df)*","chi2(df)*","Wald(df)*","LR(df)*","logrank(df)*","=!","notes")
     }
   }
   
@@ -4041,7 +4037,7 @@ function(libname, pkgname) {
           .data.frame.table.part(object,.format.s.stat.parts[i], which.part.number = i)
           
           if (.table.part.published[i]==TRUE) { .publish.horizontal.line <<- TRUE }
-          if ((.format.s.stat.parts[i]=="-") | (.format.s.stat.parts[i]=="-!") | (.format.s.stat.parts[i]=="=") | (.format.s.stat.parts[i]=="_") | (.format.s.stat.parts[i]=="=!") | (.format.s.stat.parts[i]=="_!")) { .publish.horizontal.line <<- FALSE }
+          if ((.format.s.stat.parts[i]=="-") | (.format.s.stat.parts[i]=="-!") | (.format.s.stat.parts[i]=="=") | (.format.s.stat.parts[i]=="=!") | (.format.s.stat.parts[i]=="_") | (.format.s.stat.parts[i]=="_!")) { .publish.horizontal.line <<- FALSE }
         }
       }
       
@@ -4365,7 +4361,6 @@ function(libname, pkgname) {
     .floating.header()
 
    
-    #.formatting.alignment <- paste("@{\\extracolsep{",.format.column.sep.width,"}}l", sep="")
     .formatting.alignment <- paste("l", sep="")
     
     if (.format.flip == FALSE) { width <- length(.format.s.statistics.list) }
@@ -6081,7 +6076,7 @@ function(libname, pkgname) {
     if (!is.character(style)) { error.present <- c(error.present, "% Error: Argument 'style' must be of type 'character.'\n") }
     if (length(style) != 1) { error.present <- c(error.present, "% Error: Argument 'style' must be of length 1.'\n") }
     if (is.character(style)) {
-      if (!(tolower(style) %in% c("all","all2","default","commadefault","aer","ajps","ajs","asq","asr","apsr","demography","io","jpam","qje", "summary"))) {
+      if (!(tolower(style) %in% c("all","all2","default","commadefault","aer","ajps","ajs","asq","asr","apsr","demography","io","jpam","qje"))) {
         error.present <- c(error.present, "% Error: 'style' not recognized'\n")
       }
     }
@@ -6333,7 +6328,7 @@ function(libname, pkgname) {
       layout.error <- FALSE
       for (i in 1:nchar(table.layout)) {
         ch <- substring(table.layout,i,i)
-        if (!(ch %in% c("=","-","_","!","l","d","m","c","#","b","t","o","a","s","n"))) (layout.error <- TRUE)
+        if (!(ch %in% c("=","-","!","l","d","m","c","#","b","t","o","a","s","n"))) (layout.error <- TRUE)
       }
       if (layout.error) { error.present <- c(error.present, "% Error: Invalid characters in 'table.layout'. See package documentation. \n") }
     }  
@@ -6344,7 +6339,7 @@ function(libname, pkgname) {
       layout.error <- FALSE
       for (i in 1:nchar(omit.table.layout)) {
         ch <- substring(omit.table.layout,i,i)
-        if (!(ch %in% c("=","-","_","!","l","d","m","c","#","b","t","o","a","s","n"))) (layout.error <- TRUE)
+        if (!(ch %in% c("=","-","!","l","d","m","c","#","b","t","o","a","s","n"))) (layout.error <- TRUE)
       }
       if (layout.error) { error.present <- c(error.present, "% Error: Invalid characters in 'omit.table.layout'. See package documentation. \n") }
     }  
@@ -6992,9 +6987,8 @@ function(libname, pkgname) {
           component.letter <- substr(table.layout, i, i)
           if (component.letter == "=") { .format.table.parts.new <- append(.format.table.parts.new, "=") }
           if (component.letter == "-") { .format.table.parts.new <- append(.format.table.parts.new, "-") }
-          if (component.letter == "_") { .format.table.parts.new <- append(.format.table.parts.new, "_") }
           if ((component.letter == "!") & (i > 1)) { 
-            if (.format.table.parts.new[i-1] %in% c("-","=","_")) {
+            if (.format.table.parts.new[i-1] %in% c("-","=")) {
               .format.table.parts.new[i-1] <- paste(.format.table.parts.new[i-1], "!", sep="")
             }
           }
