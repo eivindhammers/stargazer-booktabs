@@ -4624,10 +4624,8 @@ function(libname, pkgname) {
       }
     }
     
-    else if (part=="_") {
-      if (.publish.horizontal.line==TRUE) {
-        cat("\\bottomrule \n") 
-      }
+    else if (part=="_!") {
+      cat("\\bottomrule \n") 
     }
   }
 
@@ -4752,7 +4750,7 @@ function(libname, pkgname) {
 
   .table.insert.space <-
   function() {
-  	cat("\\\\[",.format.space.size,"]",sep="")
+  	cat("[",.format.space.size,"]",sep="")
   }
 
   .trim <-
